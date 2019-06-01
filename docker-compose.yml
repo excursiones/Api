@@ -1,12 +1,9 @@
 version: '2.1'
 services:
-  excursions-api:
+  excursions-app-api:
     build: .
     environment:
       PORT: '5000'
       SHOW_URLS: 'true'
-      COURSES_URL: 'arqui.local'
-      COURSES_PORT: ''
-      COURSES_ENTRY: 'excursions'
     ports:
       - '5000:5000'
