@@ -1,13 +1,13 @@
 export const excursionsTypeDef = `
 type Excursion {
-    id: Int!
+    id: Int
     name: String!
-    price: Int!
-    location: String!
+    price: Int
+    location: String
     description: String!
-    photo_path: String!
-    duration: Int!
-    state: Int!
+    photo_path: String
+    duration: Int
+    state: Int
 }
 input ExcursionCreationInput {
     name: String!
@@ -24,11 +24,12 @@ input ExcursionEditionInput {
     description: String!
     photo_path: String!
     duration: Int!
-    state: Int!
+    state: Int
 }`;
 
 export const excursionsQueries = `
     allExcursions: [Excursion]!
+    allPackages: [Excursion]!
     excursionById(id: Int!): Excursion!
     excursionByDuration(duration: Int!): [Excursion]!
     excursionByLocation(location: String!): [Excursion]!
@@ -36,7 +37,7 @@ export const excursionsQueries = `
 `;
 
 export const excursionsMutations = `
-    createExcursion(excursion: ExcursionCreationInput!): Excursion!
+    createExcursion(excursion: ExcursionCreationInput!): Excursion
     deleteExcursion(id: Int!): Int
-    updateExcursion(id: Int!, excursion: ExcursionEditionInput!): Excursion!
+    updateExcursion(id: Int!, excursion: ExcursionEditionInput!): Excursion
 `;
