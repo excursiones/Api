@@ -1,5 +1,4 @@
 import { generalRequest, getRequest } from '../utilities';
-import URLExc from '../excursions/server';
 
 const URL = `http://34.218.39.87:3000`;
 
