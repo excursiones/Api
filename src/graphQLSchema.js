@@ -10,19 +10,30 @@ import {
 	excursionsTypeDef
 } from './excursions/typeDefs';
 
+import {
+	transactionsMutations,
+	transactionsQueries,
+	transactionsTypeDef
+} from './transactions/typeDefs';
+
+
 import excursionsResolvers from './excursions/resolvers';
+import transactionsResolvers from './transactions/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		excursionsTypeDef
+		excursionsTypeDef,
+		transactionsTypeDef
 	],
 	[
-		excursionsQueries
+		excursionsQueries,
+		transactionsQueries
 	],
 	[
-		excursionsMutations
+		excursionsMutations,
+		transactionsMutations
 	]
 );
 
@@ -31,6 +42,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		excursionsResolvers
+		excursionsResolvers,
+		transactionsResolvers
 	)
 });
