@@ -1,28 +1,27 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, port, entryPoint } from './server';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `http://54.190.208.244:8000`;
 
 const resolvers = {
 	Query: {
 		allExcursions: (_) =>
-			getRequest(`${URL}/get`, ''),
+			getRequest(`${URL}/excursions/get`, ''),
 		excursionById: (_, { id }) =>
-			getRequest(`${URL}/get_by_id/${id}`, ''),
+			getRequest(`${URL}/excursions/get_by_id/${id}`, ''),
 		excursionByDuration: (_, { duration }) =>
-			getRequest(`${URL}/get_filtered_by_duration/${duration}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_duration/${duration}`, ''),
 		excursionByLocation: (_, { location }) =>
-			getRequest(`${URL}/get_filtered_by_location/${location}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_location/${location}`, ''),
 		excursionByPrice: (_, { price }) =>
-			getRequest(`${URL}/get_filtered_by_price/${price}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_price/${price}`, ''),
 	},
 	Mutation: {
 		createExcursion: (_, { excursion }) =>
-			generalRequest(`${URL}/create`, 'POST', excursion),
+			generalRequest(`${URL}/excursions/create`, 'POST', excursion),
 		updateExcursion: (_, { id, excursion }) =>
-			generalRequest(`${URL}/edit/${id}`, 'PUT', excursion),
+			generalRequest(`${URL}/excursions/edit/${id}`, 'PUT', excursion),
 		deleteExcursion: (_, { id }) =>
-			generalRequest(`${URL}/delete/${id}`, 'DELETE')
+			generalRequest(`${URL}/excursions/delete/${id}`, 'DELETE')
 	}
 };
 
