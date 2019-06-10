@@ -14,6 +14,8 @@ const resolvers = {
 			generalRequest(`${URL}/${id}/account`, 'GET'), 
 		allAccounts: (_) =>
 			getRequest(URL2, ''),
+		totalDebts: (_) =>
+			getRequest(`${URL2}/totales`, 'GET'),
 		accountById: (_, { id }) =>
 			generalRequest(`${URL2}/${id}`, 'GET')
 	},

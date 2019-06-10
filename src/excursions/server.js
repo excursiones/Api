@@ -1,3 +1,3 @@
-export const url = '192.168.99.101'
+export const url = '54.190.208.244'
 export const port = 8000
 export const entryPoint = 'excursions'
