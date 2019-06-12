@@ -1,5 +1,6 @@
 export const suppliersTypeDef = `
-type Supplier {    
+type Supplier {  
+    Id: Int!
     Codigo: Int!
     Nit: Int!
     Razon: String!
