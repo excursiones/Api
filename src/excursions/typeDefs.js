@@ -25,15 +25,24 @@ input ExcursionEditionInput {
     photo_path: String!
     duration: Int!
     state: Int
+}
+input ExcursionDurationInput {
+    maximum_duration: Int!
+}
+input ExcursionLocationInput {
+    location: String!
+}
+input ExcursionPriceInput {
+    maximum_price: Int!
 }`;
 
 export const excursionsQueries = `
     allExcursions: [Excursion]!
     allPackages: [Excursion]!
     excursionById(id: Int!): Excursion!
-    excursionByDuration(duration: Int!): [Excursion]!
-    excursionByLocation(location: String!): [Excursion]!
-    excursionByPrice(price: Int!): [Excursion]!
+    excursionByDuration(duration: ExcursionDurationInput!): [Excursion]!
+    excursionByLocation(location: ExcursionLocationInput!): [Excursion]!
+    excursionByPrice(price: ExcursionPriceInput!): [Excursion]!
 `;
 
 export const excursionsMutations = `

@@ -9,11 +9,11 @@ const resolvers = {
 		excursionById: (_, { id }) =>
 			getRequest(`${URL}/excursions/get_by_id/${id}`, ''),
 		excursionByDuration: (_, { duration }) =>
-			getRequest(`${URL}/excursions/get_filtered_by_duration/${duration}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_duration`, duration),
 		excursionByLocation: (_, { location }) =>
-			getRequest(`${URL}/excursions/get_filtered_by_location/${location}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_location`, location),
 		excursionByPrice: (_, { price }) =>
-			getRequest(`${URL}/excursions/get_filtered_by_price/${price}`, ''),
+			getRequest(`${URL}/excursions/get_filtered_by_price`, price),
 	},
 	Mutation: {
 		createExcursion: (_, { excursion }) =>
