@@ -47,6 +47,6 @@ export const excursionsQueries = `
 
 export const excursionsMutations = `
     createExcursion(excursion: ExcursionCreationInput!): Excursion
-    deleteExcursion(id: Int!): Int
+    deleteExcursion(id: Int!): Excursion
     updateExcursion(id: Int!, excursion: ExcursionEditionInput!): Excursion
 `;
