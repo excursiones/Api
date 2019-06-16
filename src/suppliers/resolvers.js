@@ -1,5 +1,5 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, port, entryPoint, entryPoint2} from './server';
+import { url, port, entryPoint, entryPoint2 } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 const URL2 = `http://${url}:${port}/${entryPoint2}`;
@@ -11,7 +11,7 @@ const resolvers = {
 		supplierById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		supplierAccount: (_, { id }) =>
-			generalRequest(`${URL}/${id}/account`, 'GET'), 
+			generalRequest(`${URL}/${id}/account`, 'GET'),
 		allAccounts: (_) =>
 			getRequest(URL2, ''),
 		totalDebts: (_) =>
@@ -31,7 +31,7 @@ const resolvers = {
 		updateAccount: (_, { id, account }) =>
 			generalRequest(`${URL2}/${id}`, 'PUT', account),
 		deleteAccount: (_, { id }) =>
-			generalRequest(`${URL2}/${id}`, 'DELETE') 
+			generalRequest(`${URL2}/${id}`, 'DELETE')
 	}
 };
 

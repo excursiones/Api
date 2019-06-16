@@ -7,8 +7,11 @@ import { mergeSchemas } from './utilities';
 import {
 	excursionsMutations,
 	excursionsQueries,
-	excursionsTypeDef
-} from './excursions/typeDefs';
+	excursionsTypeDef,
+	packagesTypeDef,
+	PackagesQueries,
+	packagesMutations
+} from './excursions_and_packages/typeDefs';
 
 import {
 	suppliersMutations,
@@ -25,7 +28,7 @@ import {
 	reservationsTypeDef
 } from './reservations/typeDefs';
 
-import excursionsResolvers from './excursions/resolvers';
+import excursionsResolvers from './excursions_and_packages/resolvers';
 import suppliersResolvers from './suppliers/resolvers';
 import reservationsResolvers from './reservations/resolvers';
 
@@ -34,18 +37,21 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		excursionsTypeDef,
+		packagesTypeDef,
 		suppliersTypeDef,
 		accountsTypeDef,
 		reservationsTypeDef
 	],
 	[
-		excursionsQueries, 
+		excursionsQueries,
+		PackagesQueries,
 		suppliersQueries,
 		accountsQueries,
 		reservationsQueries
 	],
 	[
-		excursionsMutations, 
+		excursionsMutations,
+		packagesMutations,
 		suppliersMutations,
 		accountsMutations,
 		reservationsMutations
