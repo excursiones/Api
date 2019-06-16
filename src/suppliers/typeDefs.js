@@ -28,10 +28,11 @@ export const suppliersQueries = `
 export const suppliersMutations = `
     createSupplier(supplier: SupplierInput!): Supplier!
     deleteSupplier(id: Int!): Int!
-    updateSupplier(id: Int!, suppiler: SupplierInput!): Supplier!
+    updateSupplier(id: Int!, supplier: SupplierInput!): Supplier!
 `;
 export const accountsTypeDef = `
 type Account {    
+    id: Int!
     Cuentas_por_pagar: Int!
     Cuentas_pagadas: Int!
     Intereses_por_pagar: Int!
@@ -56,8 +57,8 @@ export const accountsQueries = `
 
 export const accountsMutations = `
     createAccount(account: AccountInput!): Account!
-    deleteAccount(account: Int!): Int
-    updateAccount(account: Int!, account: AccountInput!): Account!
+    deleteAccount(id: Int!): Int
+    updateAccount(id: Int!, account: AccountInput!): Account!
 `;
 
 
