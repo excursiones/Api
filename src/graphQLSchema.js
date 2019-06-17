@@ -7,8 +7,11 @@ import { mergeSchemas } from './utilities';
 import {
 	excursionsMutations,
 	excursionsQueries,
-	excursionsTypeDef
-} from './excursions/typeDefs';
+	excursionsTypeDef,
+	packagesTypeDef,
+	PackagesQueries,
+	packagesMutations
+} from './excursions_and_packages/typeDefs';
 
 import {
 	transactionsMutations,
@@ -40,7 +43,7 @@ import {
 	reservationsTypeDef
 } from './reservations/typeDefs';
 
-import excursionsResolvers from './excursions/resolvers';
+import excursionsResolvers from './excursions_and_packages/resolvers';
 import suppliersResolvers from './suppliers/resolvers';
 import reservationsResolvers from './reservations/resolvers';
 
@@ -51,6 +54,7 @@ const mergedTypeDefs = mergeSchemas(
 		excursionsTypeDef,
 		transactionsTypeDef,
 		bookingsTypeDef,
+		packagesTypeDef,
 		suppliersTypeDef,
 		accountsTypeDef,
 		reservationsTypeDef
@@ -59,6 +63,7 @@ const mergedTypeDefs = mergeSchemas(
 		excursionsQueries,
 		transactionsQueries,
 		bookingsQueries,
+		PackagesQueries,
 		suppliersQueries,
 		accountsQueries,
 		reservationsQueries
@@ -67,6 +72,7 @@ const mergedTypeDefs = mergeSchemas(
 		excursionsMutations,
 		transactionsMutations,
 		bookingsMutations,
+		packagesMutations,
 		suppliersMutations,
 		accountsMutations,
 		reservationsMutations
