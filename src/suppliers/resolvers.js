@@ -1,5 +1,6 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, port, entryPoint, entryPoint2} from './server';
+import request from 'request-promise-native';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 const URL2 = `http://${url}:${port}/${entryPoint2}`;
@@ -14,6 +15,8 @@ const resolvers = {
 			generalRequest(`${URL}/${id}/account`, 'GET'), 
 		allAccounts: (_) =>
 			getRequest(URL2, ''),
+		totalDebts: (_) =>
+			getRequest(`${URL2}/totales`, ''),
 		accountById: (_, { id }) =>
 			generalRequest(`${URL2}/${id}`, 'GET')
 	},

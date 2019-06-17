@@ -34,8 +34,15 @@ import{
 	accountsMutations
 } from './suppliers/typeDefs';
 
+import {
+	reservationsMutations,
+	reservationsQueries,
+	reservationsTypeDef
+} from './reservations/typeDefs';
+
 import excursionsResolvers from './excursions/resolvers';
 import suppliersResolvers from './suppliers/resolvers';
+import reservationsResolvers from './reservations/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -45,21 +52,24 @@ const mergedTypeDefs = mergeSchemas(
 		transactionsTypeDef,
 		bookingsTypeDef,
 		suppliersTypeDef,
-		accountsTypeDef
+		accountsTypeDef,
+		reservationsTypeDef
 	],
 	[
 		excursionsQueries,
 		transactionsQueries,
 		bookingsQueries,
 		suppliersQueries,
-		accountsQueries
+		accountsQueries,
+		reservationsQueries
 	],
 	[
 		excursionsMutations,
 		transactionsMutations,
 		bookingsMutations,
 		suppliersMutations,
-		accountsMutations
+		accountsMutations,
+		reservationsMutations
 	]
 );
 
