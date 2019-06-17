@@ -17,7 +17,6 @@ input ReservationInput {
 export const reservationsQueries = `
     allReservations: [Reservation]
     reservationsByUserId(User_id: String!): [Reservation]
-    
 `;
 
 export const reservationsMutations = `

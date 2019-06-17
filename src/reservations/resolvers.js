@@ -8,7 +8,7 @@ const resolvers = {
 		allReservations: (_) =>
 			getRequest(URL, ''),
 		reservationsByUserId: (_, { User_id }) =>
-			generalRequest(`${URL}/${User_id}`, 'GET'),
+			generalRequest(`${URL}/reservations/${User_id}`, 'GET'),
 			},
 	Mutation: {
 		createReservation: (_, { reservation }) =>

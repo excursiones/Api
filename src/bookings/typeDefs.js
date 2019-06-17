@@ -5,6 +5,7 @@ type Booking {
     id_excursion: Int!
     id_type: Int!
     cancelled: Boolean
+    created_at: String
 }
 input BookingInput {
     id: Int
