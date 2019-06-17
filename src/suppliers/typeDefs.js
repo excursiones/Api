@@ -37,8 +37,8 @@ type Account {
     supplier_id: Int
 }
 type DebtTotal {    
-    Cuentas_por_pagar: Int    
-    Intereses_por_pagar: Int    
+    Total_ctas_por_pagar: Int    
+    Total_Int_por_pagar: Int    
 }
 input AccountInput {
     Cuentas_por_pagar: Int
