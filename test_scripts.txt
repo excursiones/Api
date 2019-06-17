@@ -1,0 +1,14 @@
+// Create mutation
+mutation {
+  createExcursion(excursion: {
+    name: "Monserrate",
+    price: 50,
+    location: "Bogotá",
+    description: "Monserrate con tamalito:3",
+    photo_path: ".",
+    duration: 5
+  }) {
+    name
+  }
+}
+

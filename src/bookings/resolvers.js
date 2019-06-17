@@ -12,6 +12,9 @@ const resolvers = {
 			getRequest(`${URL}/reservations/cancelled/${id}`, ''),
 		cancelledReservationsByExcursion: (_, {id}) =>
 			getRequest(`${URL}/reservations/cancelled/excursion-package/${id}`, ''),
+		allReservationsByUser: (_, {id}) => 
+			getRequest(`${URL}/reservations/${id}`, ''),
+
 		// availableReservationsByUser: (_, {id}) =>
 		// 	new Promise(function(resolve, reject) {
 		// 		var response = [];
