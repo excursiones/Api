@@ -54,9 +54,9 @@ export const accountsQueries = `
 `;
 
 export const accountsMutations = `
-    createAccount(account: AccountInput!): Account
-    deleteAccount(account: Int!): Int
-    updateAccount(account: Int!, account: AccountInput!): Account
+    createAccount(account: AccountInput!): Account!
+    deleteAccount(id: Int!): Int
+    updateAccount(id: Int!, account: AccountInput!): Account!
 `;
 
 
