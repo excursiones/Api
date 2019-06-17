@@ -21,6 +21,7 @@ export const bookingsQueries = `
     allReservationsByUser(id: Int!): [Booking]!
     excursionByDuration(duration: Int!): [Booking]!
     cancelledReservationsByExcursion(id: Int!): [Booking]!
+    allUserPendingReservations(id: Int!): [Booking]!
 `;
 
 export const bookingsMutations = `

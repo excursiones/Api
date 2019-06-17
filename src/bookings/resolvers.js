@@ -10,11 +10,12 @@ const resolvers = {
 			getRequest(`${URL}/reservations/cancelled`, ''),
 		allUserCancelledReservations: (_, {id}) =>
 			getRequest(`${URL}/reservations/cancelled/${id}`, ''),
+		allUserPendingReservations: (_, {id}) =>
+			getRequest(`${URL}/reservations/pending/${id}`, ''),
 		cancelledReservationsByExcursion: (_, {id}) =>
 			getRequest(`${URL}/reservations/cancelled/excursion-package/${id}`, ''),
 		allReservationsByUser: (_, {id}) => 
 			getRequest(`${URL}/reservations/${id}`, ''),
-
 		// availableReservationsByUser: (_, {id}) =>
 		// 	new Promise(function(resolve, reject) {
 		// 		var response = [];
@@ -29,7 +30,10 @@ const resolvers = {
 		cancelReservation: (_, {id}) =>
 			generalRequest(`${URL}/reservations/cancel/${id}`, 'PATCH'),
 		createReservation: (_, { reservation }) =>
-			generalRequest(`${URL}/reservations`, 'POST', reservation),
+			{
+				// console.log(reservation)
+				return generalRequest(`${URL}/reservations`, 'POST', reservation)
+			},
 		deleteReservation: (_, { id }) =>
 			generalRequest(`${URL}/reservations/${id}`, 'DELETE'),
 		updateReservation: (_, { reservation }) =>
