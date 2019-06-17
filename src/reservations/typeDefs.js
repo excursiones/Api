@@ -1,27 +1,27 @@
 export const reservationsTypeDef = `
 type Reservation {    
-    Id: Int!
-    User_id: String!
-    Excursion_id: String!
-    Type_id: String!
-    Cancelled: Boolean! 
-    Created_at: String!
+    id: Int
+    id_user: String
+    id_excursion: String
+    id_type: String
+    cancelled: Boolean 
+    created_at: String
 }
 input ReservationInput {    
-    User_id: String!
-    Excursion_id: String!
-    Type_id: String!
-    Cancelled: Boolean!     
+    id_user: String
+    id_excursion: String
+    id_type: String
+    cancelled: Boolean     
 }`;
 
 export const reservationsQueries = `
-    allReservations: [Reservation]!
-    reservationsByUserId(User_id: String!): [Reservation]!
+    allReservations: [Reservation]
+    reservationsByUserId(User_id: String!): [Reservation]
     
 `;
 
 export const reservationsMutations = `
-    createReservation(reservation: ReservationInput!): Reservation!
-    deleteReservation(id: Int!): Int!
-    updateReservation(id: Int!, reservation: ReservationInput!): Reservation!
+    createReservation(reservation: ReservationInput!): Reservation
+    deleteReservation(id: Int!): Int
+    updateReservation(id: Int!, reservation: ReservationInput!): Reservation
 `;
