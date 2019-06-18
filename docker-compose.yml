@@ -1,6 +1,6 @@
-version: '2.1'
+version: '2'
 services:
-  excursions-app-api:
+  excursions-app-api6:
     build: .
     environment:
       PORT: '5000'
