@@ -1,5 +1,4 @@
 import { generalRequest, getRequest } from '../utilities';
-const jwt = require('jsonwebtoken');
 import { tokenValidationEntryPoint, port, url } from "./server";
 
 
@@ -12,7 +11,6 @@ const getUserInfo = async (_, token) => {
         console.log(validated);
         if (validated) {
             if (validated == 200) {
-                payload = jwt.decode(token, { json: true });
                 return payload;
             }
             else

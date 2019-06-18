@@ -1,6 +1,5 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, port, entryPoint, tokenValidationEntryPoint } from './server';
-var jwt = require('jsonwebtoken')
 const URL = `http://${url}:${port}/${entryPoint}`;
 
 const crypto = require('crypto'),
@@ -26,7 +25,6 @@ const resolvers = {
 					if (res === 'LDAPException found') {// Toca mirar el codigo de status
 						return res
 					} else {
-						var token = await jwt.sign({ username: res }, 'Secret Password', { expiresIn: 60 * 60 * 24 })
 						// return res;
 						return token
 					}
