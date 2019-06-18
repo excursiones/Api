@@ -1,13 +1,19 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, port, entryPoint, entryPoint2 } from './server';
+import getUserInfo from '../authorization/getUserInfo';
+
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 const URL2 = `http://${url}:${port}/${entryPoint2}`;
 
 const resolvers = {
 	Query: {
-		allSuppliers: (_) =>
-			getRequest(URL, ''),
+		allSuppliers: (_, { }, ctx) => {
+			const user = getUserInfo(ctx.token);
+			console.log(user);
+			return getRequest(URL, '');
+
+		},
 		supplierById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		supplierAccount: (_, { id }) =>

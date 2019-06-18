@@ -29,7 +29,7 @@ input ExcursionEditionInput {
 
 
 export const excursionsQueries = `
-allExcursions: [Excursion]!
+allExcursions: [Excursion]
 excursionById(id: Int!): Excursion!
 excursionByDuration(duration: Int!): [Excursion]!
 excursionByLocation(location: String!): [Excursion]!
@@ -47,17 +47,17 @@ updateExcursion(id: Int!, excursion: ExcursionEditionInput!): Excursion!
 
 export const packagesTypeDef = `
 type Package{
-    id: Int!
+    id_packages: Int
     name: String!
     price: Int!
-    excursions: [Int]!
+    id_excursions: Int
     state: Int!
 }
 
 input CreatePackageInput {
     name: String!
     price: Int!
-    excursions: [Int]! 
+    excursions: [Int]
 }
 
 input EditPackageInput {
@@ -73,7 +73,7 @@ packageByPrice(price: Int!): [Package]!
 `;
 
 export const packagesMutations = `
-createPackage(package: CreatePackageInput!): Package!
+createPackage(_package: CreatePackageInput!): Package!
 deletePackage(id: Int!): Package!
-updatePackage(id: Int!, excursion: EditPackageInput!): Package!
+updatePackage(id: Int!, _package: EditPackageInput!): Package
 `;
