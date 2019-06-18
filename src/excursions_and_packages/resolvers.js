@@ -6,8 +6,10 @@ const URL1 = `http://${url}:${port}/${entryPoint1}`;
 
 const resolvers = {
 	Query: {
-		allExcursions: (_) =>
-			getRequest(`${URL}/get`, ''),
+		allExcursions: (_, { }, ctx) => {
+
+			return getRequest(`${URL}/get`, '')
+		},
 		excursionById: (_, { id }) =>
 			getRequest(`${URL}/get_by_id/${id}`, ''),
 		excursionByDuration: (_, { duration }) =>
