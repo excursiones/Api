@@ -25,16 +25,17 @@ export const suppliersQueries = `
 `;
 
 export const suppliersMutations = `
-    createSupplier(supplier: SupplierInput!): Supplier
-    deleteSupplier(id: Int!): Int
-    updateSupplier(id: Int!, suppiler: SupplierInput!): Supplier
+    createSupplier(supplier: SupplierInput!): Supplier!
+    deleteSupplier(id: Int!): Int!
+    updateSupplier(id: Int!, supplier: SupplierInput!): Supplier!
 `;
 export const accountsTypeDef = `
 type Account {    
-    Cuentas_por_pagar: Int
-    Cuentas_pagadas: Int
-    Intereses_por_pagar: Int
-    supplier_id: Int
+    id: Int!
+    Cuentas_por_pagar: Int!
+    Cuentas_pagadas: Int!
+    Intereses_por_pagar: Int!
+    supplier_id: Int!
 }
 type DebtTotal {    
     Total_ctas_por_pagar: Int    
