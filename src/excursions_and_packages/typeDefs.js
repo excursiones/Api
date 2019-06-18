@@ -73,7 +73,7 @@ packageByPrice(price: Int!): [Package]!
 `;
 
 export const packagesMutations = `
-createPackage(_package: CreatePackageInput!): Package!
+createPackage(pack: CreatePackageInput!): Package!
 deletePackage(id: Int!): Package!
-updatePackage(id: Int!, _package: EditPackageInput!): Package
+updatePackage(id: Int!, pack: EditPackageInput!): Package
 `;
