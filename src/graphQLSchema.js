@@ -47,7 +47,11 @@ import excursionsResolvers from './excursions_and_packages/resolvers';
 import suppliersResolvers from './suppliers/resolvers';
 import reservationsResolvers from './reservations/resolvers';
 import loginResolvers from './login_and_sign_up/resolvers'
-import { SignInAndSignUpTypeDef, SignInAndSignUpQueries, SignInAndSignUpMutations } from './login_and_sign_up/typeDefs';
+import {
+	SignInAndSignUpTypeDef,
+	SignInAndSignUpQueries,
+	SignInAndSignUpMutations
+} from './login_and_sign_up/typeDefs';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(

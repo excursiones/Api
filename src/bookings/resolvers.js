@@ -1,21 +1,52 @@
 import { generalRequest, getRequest } from '../utilities';
+import { getUserInfo } from '../authorization/getUserInfo';
 
 const URL = `http://34.218.39.87:3000`;
 
 const resolvers = {
 	Query: {
-		allReservations: (_) =>
-			getRequest(`${URL}/reservations`, ''),
-		allCancelledReservations: (_) =>
-			getRequest(`${URL}/reservations/cancelled`, ''),
-		allUserCancelledReservations: (_, {id}) =>
-			getRequest(`${URL}/reservations/cancelled/${id}`, ''),
-		allUserPendingReservations: (_, {id}) =>
-			getRequest(`${URL}/reservations/pending/${id}`, ''),
-		cancelledReservationsByExcursion: (_, {id}) =>
-			getRequest(`${URL}/reservations/cancelled/excursion-package/${id}`, ''),
-		allReservationsByUser: (_, {id}) => 
-			getRequest(`${URL}/reservations/${id}`, ''),
+		allReservations: (_, { }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations`, '');
+				return user
+			}).catch(err => err)
+		,
+		allCancelledReservations: (_, { }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations/cancelled`, '');
+				return user
+			}).catch(err => err)
+		,
+		allUserCancelledReservations: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations/cancelled/${id}`, '');
+				return user
+			}).catch(err => err)
+		,
+		allUserPendingReservations: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations/pending/${id}`, '');
+				return user
+			}).catch(err => err)
+		,
+		cancelledReservationsByExcursion: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations/cancelled/excursion-package/${id}`, '');
+				return user
+			}).catch(err => err)
+		,
+		allReservationsByUser: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return getRequest(`${URL}/reservations/${id}`, '');
+				return user
+			}).catch(err => err)
+		,
 		// availableReservationsByUser: (_, {id}) =>
 		// 	new Promise(function(resolve, reject) {
 		// 		var response = [];
@@ -27,17 +58,33 @@ const resolvers = {
 		// 	})
 	},
 	Mutation: {
-		cancelReservation: (_, {id}) =>
-			generalRequest(`${URL}/reservations/cancel/${id}`, 'PATCH'),
-		createReservation: (_, { reservation }) =>
-			{
-				// console.log(reservation)
-				return generalRequest(`${URL}/reservations`, 'POST', reservation)
-			},
-		deleteReservation: (_, { id }) =>
-			generalRequest(`${URL}/reservations/${id}`, 'DELETE'),
-		updateReservation: (_, { reservation }) =>
-			generalRequest(`${URL}/reservations/${id}`, 'PATCH', reservation)
+		cancelReservation: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return generalRequest(`${URL}/reservations/cancel/${id}`, 'PATCH');
+				return user
+			}).catch(err => err)
+		,
+		createReservation: (_, { reservation }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return generalRequest(`${URL}/reservations`, 'POST', reservation);
+				return user
+			}).catch(err => err)
+		,
+		deleteReservation: (_, { id }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return generalRequest(`${URL}/reservations/${id}`, 'DELETE');
+				return user
+			}).catch(err => err)
+		,
+		updateReservation: (_, { reservation }, ctx) =>
+			getUserInfo(ctx).then(user => {
+				if (user.type && (user.type[0] != "500"))
+					return generalRequest(`${URL}/reservations/${id}`, 'PATCH', reservation);
+				return user
+			}).catch(err => err)
 	}
 };
 
