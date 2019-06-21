@@ -1,14 +1,14 @@
 FROM node:carbon-slim
 
 # Create app directory
-WORKDIR /git/excursions-app-api
+WORKDIR /git/excursions-api
 
 # Install app dependencies
-COPY package.json /git/excursions-app-api/
+COPY package.json /git/excursions-api/
 RUN npm install
 
 # Bundle app source
-COPY . /git/excursions-app-api/
+COPY . /git/excursions-api/
 RUN npm run prepublish
 
 CMD [ "npm", "run", "runServer" ]
