@@ -1,15 +1,20 @@
 version: '2'
 services:
-  excursions-api3:
+  excursions-api6:
     build: .
     environment:
       PORT: '5000'
       SHOW_URLS: 'true'
-      LOGIN_URL: ""
-      LOGIN_PORT: ""
-      LOGIN_ENTRY: ""
+      LOGIN_URL: "3.13.112.89"
+      LOGIN_PORT: 3000
+      LOGIN_ENTRY: "/sign_in"
+      SIGN_UP_ENTRY: "/sign_up"
+      AUTHORIZATION_ENTRY: "/authorize"
     labels:
       io.rancher.scheduler.affinity:host_label: io.rancher.stack.name=api
       io.rancher.scheduler.global: 'true'
     ports:
       - '5000:5000'
+    volumes: 
+      - src:/git/excursions-app-api/src
+

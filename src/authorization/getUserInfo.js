@@ -1,27 +1,24 @@
 import { generalRequest, getRequest } from '../utilities';
 import { tokenValidationEntryPoint, port, url } from "./server";
-
-
+const jwt = require('jsonwebtoken');
 
 const TVEP_URL = `http://${url}:${port}/${tokenValidationEntryPoint}`;
 
-const getUserInfo = async (_, token) => {
-    try {
-        let validated = await generalRequest(`${TVEP_URL}`, 'GET', token)
-        console.log(validated);
-        if (validated) {
-            if (validated == 200) {
-                return payload;
-            }
-            else
-                return validated;
+export const getUserInfo = async (token) => generalRequest(`${TVEP_URL}`, 'POST', { auth: token }, true).then(res => {
+    if (res) {
+        if (res.statusCode == 200) {
+            return jwt.decode(token.token, { json: true });
         } else {
-            return -1;
+            return res;
         }
-    } catch (error) {
-
+    } else {
+        return -1;
     }
-}
+}).catch(err => {
+    console.error(err);
+})
 
 
-export default getUserInfo;
+export const unauthorizedError = (code) => {
+    throw new ApolloError("Forbidden", code);
+};
