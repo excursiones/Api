@@ -1,5 +1,6 @@
 import { generalRequest, getRequest } from '../utilities';
 import { getUserInfo } from '../authorization/getUserInfo';
+import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
