@@ -1,3 +1,3 @@
-export const url = '34.218.39.87'
-export const port = 3000
+export const url = '34.67.150.50'
+export const port = 8080
 export const entryPoint = 'reservations'

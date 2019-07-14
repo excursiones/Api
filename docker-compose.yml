@@ -16,5 +16,5 @@ services:
     ports:
       - '5000:5000'
     volumes: 
-      - src:/git/excursions-app-api/src
+      - ./src:./excursions-app-api/src
 
