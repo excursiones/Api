@@ -1,7 +1,7 @@
 import { generalRequest, getRequest } from '../utilities';
 import { getUserInfo } from '../authorization/getUserInfo';
 
-const URL = `http://34.218.39.87:3000`;
+const URL = `http://bookings-lb.bookings-app:8080`;
 
 const resolvers = {
 	Query: {
