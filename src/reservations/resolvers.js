@@ -8,10 +8,11 @@ const resolvers = {
 	Query: {
 		allReservations: (_, { }, ctx) =>
 			getUserInfo(ctx).then(user => {
+				console.log("ALL RESERVATIONS2");
 				if (user.type && (user.type[0] != "500"))
 					return getRequest(URL, '');
 				return user
-			}).catch(err => err)
+			}).catch(err => console.log("ERROR2 :" + err)) 
 		,
 		reservationsByUserId: (_, { User_id }, ctx) =>
 			getUserInfo(ctx).then(user => {
@@ -42,7 +43,6 @@ const resolvers = {
 					return generalRequest(`${URL}/${id}`, 'DELETE');
 				return user
 			}).catch(err => err)
-
 	}
 };
 

@@ -13,11 +13,7 @@ services:
     labels:
       io.rancher.scheduler.global: 'true'
     ports:
-      - '5001:5000'
-    external_links:
-      # <stackname>/<service_name>:<service_alias>
-      - bookings-ms/web
-      - notifications-ms/notifications-lb
-      - packages-ms/myapp2
-      - suppliers-ms/web
-      - payments-ms/paymentsms
+      - '5000:5000'
+    volumes: 
+      - ./src:./excursions-app-api/src
+

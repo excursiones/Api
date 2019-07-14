@@ -1,9 +1,9 @@
 import { generalRequest, getRequest } from '../utilities';
 import { tokenValidationEntryPoint, port, url } from "./server";
+import { reject } from 'any-promise';
 const jwt = require('jsonwebtoken');
 
 const TVEP_URL = `http://${url}:${port}/${tokenValidationEntryPoint}`;
-
 const SKIP_AUTH = true; 
 
 export const getUserInfo = async (token) => {

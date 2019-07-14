@@ -1,16 +1,17 @@
 import { generalRequest, getRequest } from '../utilities';
 import { getUserInfo } from '../authorization/getUserInfo';
 
-const URL = `http://bookings-lb.bookings-app:8080`;
+const URL = `http://34.67.150.50:8080`;
 
 const resolvers = {
 	Query: {
 		allReservations: (_, { }, ctx) =>
 			getUserInfo(ctx).then(user => {
-				if (user.type && (user.type[0] != "500"))
-					return getRequest(`${URL}/reservations`, '');
+				if (user.type && (user.type[0] != "500")) {
+					return getRequest(`http://34.67.150.50:8080/reservations`, '');
+				}
 				return user
-			}).catch(err => err)
+			}).catch(err =>  console.log("ERROR1 :" + err)) 
 		,
 		allCancelledReservations: (_, { }, ctx) =>
 			getUserInfo(ctx).then(user => {
