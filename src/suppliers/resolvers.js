@@ -2,7 +2,6 @@ import { generalRequest, getRequest, formatErr } from '../utilities';
 import { url, port, entryPoint, entryPoint2 } from './server';
 import { getUserInfo, unauthorizedError } from '../authorization/getUserInfo';
 
-
 const URL = `http://${url}:${port}/${entryPoint}`;
 const URL2 = `http://${url}:${port}/${entryPoint2}`;
 

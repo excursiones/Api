@@ -1,3 +1,3 @@
-export const url = '34.67.150.50'
-export const port = 8080
+export const url = 'web.bookings-ms'
+export const port = 3001
 export const entryPoint = 'reservations'
