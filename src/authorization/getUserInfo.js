@@ -4,10 +4,9 @@ import { reject } from 'any-promise';
 const jwt = require('jsonwebtoken');
 
 const TVEP_URL = `http://${url}:${port}/${tokenValidationEntryPoint}`;
-const SKIP_AUTH = true; 
 
 export const getUserInfo = async (token) => {
-    if(SKIP_AUTH) {
+    if(process.env.SKIP_AUTH) {
         return new Promise((resolve, reject) => {
             resolve({
                 type : [400]
