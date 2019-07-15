@@ -1,6 +1,9 @@
-5000 -> notifications
 3000 -> Suppliers
 3001 -> Bookings
+3002 -> Authorization
+
+5000 -> notifications
 5001 -> API
-8002 -> Payments
+
 8001 -> Packages
+8002 -> Payments
