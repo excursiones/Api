@@ -47,11 +47,17 @@ import excursionsResolvers from './excursions_and_packages/resolvers';
 import suppliersResolvers from './suppliers/resolvers';
 import reservationsResolvers from './reservations/resolvers';
 import loginResolvers from './login_and_sign_up/resolvers'
+import notificationsResolvers from './notifications/resolvers'
 import {
 	SignInAndSignUpTypeDef,
 	SignInAndSignUpQueries,
 	SignInAndSignUpMutations
 } from './login_and_sign_up/typeDefs';
+import {
+	notificactionsTypeDefs,
+	notificationsQueries,
+	notificationsMutations
+} from './notifications/typeDefs';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -64,7 +70,8 @@ const mergedTypeDefs = mergeSchemas(
 		suppliersTypeDef,
 		accountsTypeDef,
 		reservationsTypeDef,
-		SignInAndSignUpTypeDef
+		SignInAndSignUpTypeDef,
+		notificactionsTypeDefs
 	],
 	[
 		excursionsQueries,
@@ -74,7 +81,8 @@ const mergedTypeDefs = mergeSchemas(
 		suppliersQueries,
 		accountsQueries,
 		reservationsQueries,
-		SignInAndSignUpQueries
+		SignInAndSignUpQueries,
+		notificationsQueries
 	],
 	[
 		excursionsMutations,
@@ -84,7 +92,8 @@ const mergedTypeDefs = mergeSchemas(
 		suppliersMutations,
 		accountsMutations,
 		reservationsMutations,
-		SignInAndSignUpMutations
+		SignInAndSignUpMutations,
+		notificationsMutations
 	]
 );
 
@@ -97,6 +106,7 @@ export default makeExecutableSchema({
 		transactionsResolvers,
 		bookingsResolvers,
 		suppliersResolvers,
-		loginResolvers
+		loginResolvers,
+		notificationsResolvers
 	)
 });
