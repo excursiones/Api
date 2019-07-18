@@ -6,8 +6,8 @@ services:
       PORT: '5000'
       SHOW_URLS: 'true'
       SKIP_AUTH: 'true'
-      LOGIN_ENTRY: "/sign_in"
-      SIGN_UP_ENTRY: "/sign_up"
+      LOGIN_ENTRY: "sign_in"
+      SIGN_UP_ENTRY: "sign_up"
       AUTHORIZATION_ENTRY: "/authorize"
     ports:
       - '5001:5000'
