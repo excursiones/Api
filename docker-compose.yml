@@ -9,6 +9,8 @@ services:
       LOGIN_ENTRY: "sign_in"
       SIGN_UP_ENTRY: "sign_up"
       AUTHORIZATION_ENTRY: "/authorize"
+      NOTIFICATIONS_URL: "notifications-lb.notifications-ms"
+      NOTIFICACTIONS_PORT: 8081
     ports:
       - '5001:5000'
     external_links:
