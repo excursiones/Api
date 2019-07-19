@@ -9,8 +9,6 @@ services:
       LOGIN_ENTRY: "sign_in"
       SIGN_UP_ENTRY: "sign_up"
       AUTHORIZATION_ENTRY: "/authorize"
-    labels:
-      io.rancher.scheduler.global: 'true'
     ports:
       - '5001:5000'
     external_links:
